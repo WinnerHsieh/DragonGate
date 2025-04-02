@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>龍門遊戲模擬</title>
+    <link rel="stylesheet" href="src/css/gameplay.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>龍門遊戲</h1>
+        </header>
+        
+        <div class="game-info">
+            <div class="balance-display">
+                <div class="info-label">本金</div>
+                <div id="balanceValue" class="info-value">10000</div>
+            </div>
+            <div class="win-display">
+                <div class="info-label">贏</div>
+                <div id="winValue" class="info-value">0</div>
+            </div>
+            <div class="bet-display">
+                <div class="info-label">押注</div>
+                <div class="bet-control">
+                    <button id="decreaseBet" class="bet-btn">-</button>
+                    <div id="betValue" class="bet-value">100</div>
+                    <button id="increaseBet" class="bet-btn">+</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 發牌狀況顯示 -->
+        <div class="deck-status">
+            <span id="deckStatus">0 / 106 張</span>
+            <button id="viewDeckBtn" class="view-deck-btn">看牌</button>
+        </div>
+        
+        <div class="game-board">
+            <div class="card-container">
+                <div id="card1" class="card card-placeholder">?</div>
+                <div id="card2" class="card card-placeholder hidden">?</div>
+                <div id="card3" class="card card-placeholder">?</div>
+            </div>
+            
+            <div id="specialButtons" class="special-buttons hidden">
+                <button id="biggerBtn" class="special-btn">比大</button>
+                <button id="smallerBtn" class="special-btn">比小</button>
+            </div>
+        </div>
+        
+        <div class="game-controls">
+            <button id="dealBtn" class="action-btn">發牌</button>
+            <button id="hitBtn" class="action-btn hidden">補牌</button>
+            <button id="standBtn" class="action-btn hidden">放棄</button>
+        </div>
+        
+        <div id="messageArea" class="message-area"></div>
+    </div>
+    
+    <div id="betSelectionModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>選擇押注金額</h3>
+            </div>
+            <div class="bet-options">
+                <!-- 這裡會由JavaScript動態填充金額選項 -->
+            </div>
+            <div class="modal-footer">
+                <button id="cancelBetSelection" class="modal-btn">取消</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 牌組查看彈出視窗 -->
+    <div id="deckViewModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>剩餘牌組</h3>
+                <button id="closeDeckView" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="remainingCards" class="remaining-cards-container">
+                    <!-- 剩餘牌組將在這裡顯示 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="src/js/card-render.js"></script>
+    <script src="src/js/gameplay.js"></script>
+</body>
+</html> 
